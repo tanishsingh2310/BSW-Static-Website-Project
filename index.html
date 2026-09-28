@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Cambria", "Cochin", "Georgia", "Times", "Times New Roman", serif;
+        }
+
+        body {
+            background-color: #e2e1fc; 
+            background-image: url("BSW.png.png");
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            color: black;  
+            padding: 40px 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .wrapper h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .wrapper .input-box {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 30px 0;
+        }
+
+        .input-box input, 
+        .input-box select {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: 1px solid black;
+            outline: none;
+            border-radius: 40px;
+            font-size: 16px;
+            color: #000080;
+            padding: 0 45px 0 20px;
+        }
+
+        .input-box input::placeholder {
+            color: #000080;
+            opacity: 0.7;
+        }
+
+        .input-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #000080;
+            pointer-events: none;
+        }
+
+        .wrapper .btn {
+            width: 100%;
+            height: 50px;
+            background: #040273;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #fff;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .wrapper .btn:hover {
+            background: #0604a3;
+            transform: scale(1.02);
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+        }
+
+        select:invalid {
+            color: #000080;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 480px) {
+            .wrapper {
+                padding: 30px 20px;
+            }
+            .wrapper h1 {
+                font-size: 28px;
+            }
+            .wrapper .input-box {
+                height: 45px;
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <form action="">
+        <h1>Login</h1>
+
+        <!-- Username -->
+        <div class="input-box">
+            <input type="text" id="username" placeholder="Enter username" required>
+            <i class='bx bxs-user'></i>
+        </div>
+
+        
+
+        <!-- Password -->
+        <div class="input-box">
+            <input type="password" id="password" placeholder="Enter password" required>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+<!-- Email (NEW) -->
+        <div class="input-box">
+            <input type="email" id="email" placeholder="Enter email" required>
+            <i class='bx bxs-envelope'></i>
+        </div>
+        <!-- Report Selection -->
+        <div class="input-box">
+            <select id="formChoice" required>
+                <option value="" disabled selected>Select Report</option>
+                <option value="Production Report">Production Report</option>
+                <option value="Dispatch Report">Dispatch Report</option>
+            </select>
+            <i class='bx bxs-down-arrow'></i>
+        </div>
+
+        <button type="button" class="btn" onclick="validateID()">Login</button>
+    </form>
+</div>
+
+    <script>
+function validateID() {
+    const uname = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const pass = document.getElementById("password").value.trim();
+    const choose = document.getElementById("formChoice").value;
+
+    const allowedunms = ["BSW_JUMBO", "BSW_MINI", "BSW_BHARAT", "BSW_NEW", "BSW_JALARAM"];
+    const allowedpass = ["Jum@123", "Mini@123", "Bhar@123", "New@123", "Jal@123"];
+
+    // ✅ Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address");
+        return;
+    }
+
+    let isValid = false;
+    let formURL = "";
+
+    for (let i = 0; i < allowedunms.length; i++) {
+        if (uname === allowedunms[i] && pass === allowedpass[i]) {
+            isValid = true;
+            break;
+        }
+    }
+
+    if (isValid) {
+        switch (choose) {
+            case "Production Report":
+                formURL = "production_form.html";
+                break;
+            case "Dispatch Report":
+                formURL = "dispatch_form.html";
+                break;
+            default:
+                alert("Please select a valid report.");
+                return;
+        }
+
+        alert("Successfully logged in");
+        window.location.href = formURL + "?email=" + encodeURIComponent(email);
+    } else {
+        alert("ERROR: Invalid ID or Password");
+    }
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat Silica Works - Production Form</title>
+
+<!-- Lucide Icons CDN -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script src="company_products.js"></script>
+
+<style>
+    * { 
+        box-sizing: border-box; 
+        margin: 0;
+        padding: 0;
+    }
+    
+    :root {
+        --primary: #2563eb;
+        --primary-dark: #1e40af;
+        --primary-light: #3b82f6;
+        --secondary: #8b5cf6;
+        --success: #10b981;
+        --danger: #ef4444;
+        --warning: #f59e0b;
+        --dark: #0f172a;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-300: #cbd5e1;
+        --gray-400: #94a3b8;
+        --gray-500: #64748b;
+        --gray-600: #475569;
+        --gray-700: #334155;
+        --gray-800: #1e293b;
+        --gray-900: #0f172a;
+        --white: #ffffff;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        --radius-sm: 8px;
+        --radius: 12px;
+        --radius-lg: 16px;
+        --radius-xl: 20px;
+    }
+    
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #e2e1fc;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
+        position: relative;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Animated Background */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        animation: backgroundPulse 15s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    @keyframes backgroundPulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+    }
+    
+    /* Floating Particles */
+    body::after {
+        content: '';
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background-image: 
+            radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+            radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px, 80px 80px;
+        background-position: 0 0, 40px 40px;
+        animation: floatParticles 60s linear infinite;
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    @keyframes floatParticles {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        100% { transform: translate(50px, 50px) rotate(360deg); }
+    }
+    
+    .container { 
+        width: 100%; 
+        max-width: 620px; 
+        position: relative;
+        z-index: 1;
+    }
+    
+    /* Main Card */
+    .box {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        padding: 56px 48px;
+        border-radius: var(--radius-xl);
+        box-shadow: 
+            0 0 0 1px rgba(255, 255, 255, 0.1),
+            0 30px 60px -12px rgba(0, 0, 0, 0.25),
+            0 50px 100px -20px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Top Accent Bar */
+    .box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, 
+            #667eea 0%, 
+            #764ba2 25%, 
+            #f093fb 50%, 
+            #764ba2 75%, 
+            #667eea 100%);
+        background-size: 200% 100%;
+        animation: gradientShift 8s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+    
+    /* Subtle Glow Effect */
+    
+    
+    .box:hover::after {
+        opacity: 1;
+    }
+    
+    @keyframes slideInUp {
+        from { 
+            opacity: 0; 
+            transform: translateY(60px) scale(0.95);
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    /* Header */
+    .form-header {
+        text-align: center;
+        margin-bottom: 48px;
+        position: relative;
+    }
+    
+    .form-icon {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.4);
+        animation: iconFloat 3s ease-in-out infinite;
+    }
+    
+    @keyframes iconFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    .form-icon i {
+        color: white;
+        width: 32px;
+        height: 32px;
+    }
+    
+    h2 { 
+        margin: 0 0 12px 0;
+        font-weight: 800;
+        color: var(--gray-900);
+        font-size: 25px;
+        letter-spacing: -1px;
+        line-height: 1.2;
+    }
+    
+    .form-subtitle {
+        color: var(--gray-500);
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+    
+    /* Form Groups */
+    .form-group {
+        margin-bottom: 28px;
+        position: relative;
+        animation: fadeInUp 0.6s ease-out backwards;
+    }
+    
+    .form-group:nth-child(1) { animation-delay: 0.1s; }
+    .form-group:nth-child(2) { animation-delay: 0.15s; }
+    .form-group:nth-child(3) { animation-delay: 0.2s; }
+    .form-group:nth-child(4) { animation-delay: 0.25s; }
+    .form-group:nth-child(5) { animation-delay: 0.3s; }
+    .form-group:nth-child(6) { animation-delay: 0.35s; }
+    .form-group:nth-child(7) { animation-delay: 0.4s; }
+    .form-group:nth-child(8) { animation-delay: 0.45s; }
+    .form-group:nth-child(9) { animation-delay: 0.5s; }
+    .form-group:nth-child(10) { animation-delay: 0.55s; }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    label { 
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--gray-700);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        letter-spacing: 0.2px;
+        transition: color 0.2s ease;
+    }
+    
+    label i {
+        width: 16px;
+        height: 16px;
+        color: var(--gray-400);
+    }
+    
+    .required {
+        color: var(--danger);
+        margin-left: 2px;
+    }
+    
+    /* Input Fields */
+    input, select {
+        width: 100%;
+        padding: 15px 18px;
+        border: 2px solid var(--gray-200);
+        border-radius: var(--radius);
+        background: var(--white);
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        outline: none;
+        color: var(--gray-900);
+        font-family: inherit;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    input:hover, select:hover {
+        border-color: var(--gray-300);
+        box-shadow: var(--shadow);
+    }
+    
+    input:focus, select:focus {
+        border-color: var(--primary);
+        background: var(--white);
+        box-shadow: 
+            0 0 0 4px rgba(37, 99, 235, 0.1),
+            0 4px 12px rgba(37, 99, 235, 0.15);
+        transform: translateY(-2px);
+    }
+    
+    input:focus ~ label, select:focus ~ label {
+        color: var(--primary);
+    }
+    
+    input[readonly] {
+        background: var(--gray-50);
+        cursor: not-allowed;
+        color: var(--gray-500);
+        border-color: var(--gray-200);
+    }
+    
+    input[readonly]:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    /* Clean Select Dropdown */
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+    }
+
+    select:not([multiple]):not([size]) {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        background-size: 18px;
+        padding-right: 50px;
+    }
+
+    select::-ms-expand {
+        display: none;
+    }
+    
+    /* Grid Layout for Quantity Fields */
+    .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    /* Buttons */
+    .btn {
+        width: 100%;
+        padding: 16px 24px;
+        border: none;
+        border-radius: var(--radius);
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 0.3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .btn i {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: white;
+        margin-top: 16px;
+    }
+    
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    .btn-primary:hover::before {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 
+            0 15px 30px -5px rgba(102, 126, 234, 0.5),
+            0 0 0 0 rgba(102, 126, 234, 0.5);
+    }
+    
+    .btn-primary:active {
+        transform: translateY(-1px);
+    }
+    
+    .btn-secondary {
+        background: var(--white);
+        color: var(--gray-700);
+        border: 2px solid var(--gray-200);
+    }
+    
+    .btn-secondary:hover {
+        background: var(--gray-50);
+        border-color: var(--gray-300);
+        transform: translateY(-2px);
+    }
+    
+    /* Preview Box */
+    #previewBox {
+        display: none;
+        max-width: 700px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        padding: 56px 48px;
+        border-radius: var(--radius-xl);
+        box-shadow: 
+            0 0 0 1px rgba(255, 255, 255, 0.1),
+            0 30px 60px -12px rgba(0, 0, 0, 0.25),
+            0 50px 100px -20px rgba(0, 0, 0, 0.3);
+        animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+    }
+    
+    #previewBox::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, 
+            #10b981 0%, 
+            #059669 50%, 
+            #10b981 100%);
+        background-size: 200% 100%;
+        animation: gradientShift 8s ease infinite;
+    }
+    
+    #previewBox h2 {
+        color: var(--gray-900);
+        margin-bottom: 32px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        justify-content: center;
+    }
+    
+    #previewBox h2 i {
+        width: 32px;
+        height: 32px;
+        color: var(--success);
+    }
+    
+    #previewContent {
+        background: var(--gray-50);
+        padding: 32px;
+        border-radius: var(--radius-lg);
+        border: 2px solid var(--gray-200);
+        margin-bottom: 32px;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .preview-item {
+        display: flex;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--gray-200);
+        animation: fadeInUp 0.5s ease-out backwards;
+    }
+    
+    .preview-item:last-child {
+        border-bottom: none;
+    }
+    
+    .preview-item:nth-child(1) { animation-delay: 0.1s; }
+    .preview-item:nth-child(2) { animation-delay: 0.15s; }
+    .preview-item:nth-child(3) { animation-delay: 0.2s; }
+    .preview-item:nth-child(4) { animation-delay: 0.25s; }
+    .preview-item:nth-child(5) { animation-delay: 0.3s; }
+    .preview-item:nth-child(6) { animation-delay: 0.35s; }
+    .preview-item:nth-child(7) { animation-delay: 0.4s; }
+    .preview-item:nth-child(8) { animation-delay: 0.45s; }
+    .preview-item:nth-child(9) { animation-delay: 0.5s; }
+    .preview-item:nth-child(10) { animation-delay: 0.55s; }
+    
+    .preview-label {
+        font-weight: 600;
+        color: var(--gray-600);
+        min-width: 200px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .preview-label i {
+        width: 16px;
+        height: 16px;
+        color: var(--gray-400);
+    }
+    
+    .preview-value {
+        color: var(--gray-900);
+        font-weight: 600;
+        font-size: 15px;
+    }
+    
+    .button-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 32px;
+    }
+    
+    /* Success Badge */
+    .success-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--success);
+        padding: 8px 16px;
+        border-radius: 100px;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 24px;
+    }
+    
+    .success-badge i {
+        width: 16px;
+        height: 16px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        body {
+            padding: 16px;
+        }
+        
+        .box, #previewBox {
+            padding: 40px 28px;
+        }
+        
+        .form-header {
+            margin-bottom: 36px;
+        }
+        
+        .form-icon {
+            width: 56px;
+            height: 56px;
+        }
+        
+        h2 {
+            font-size: 26px;
+        }
+        
+        .form-subtitle {
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        input, select {
+            padding: 13px 16px;
+            font-size: 14px;
+        }
+        
+        .grid-2 {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        .btn {
+            padding: 14px 20px;
+            font-size: 15px;
+        }
+        
+        #previewContent {
+            padding: 24px;
+        }
+        
+        .preview-label {
+            min-width: 150px;
+            font-size: 13px;
+        }
+        
+        .preview-value {
+            font-size: 14px;
+        }
+        
+        .button-group {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+    }
+    
+    /* Loading State */
+    .loading {
+        pointer-events: none;
+        opacity: 0.6;
+        position: relative;
+    }
+    
+    .loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 24px;
+        height: 24px;
+        margin: -12px 0 0 -12px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+
+<form id="productionForm">
+<div class="container">
+    <div class="box">
+        <div class="form-header">
+            <div class="form-icon">
+                <i data-lucide="factory"></i>
+            </div>
+            <h2>Bharat Silica Works - Daily Production Report </h2>
+            
+        </div>
+<div id="page1">
+        <div class="form-group">
+            <label>
+                <i data-lucide="mail"></i>
+                Email Address<span class="required">*</span>
+            </label>
+            <input type="email" id="email" readonly required>
+        </div>
+
+        <div class="grid-2">
+    <!-- DATE -->
+    <div class="form-group">
+        <label>
+            <i data-lucide="calendar"></i>
+            Date<span class="required">*</span>
+        </label>
+        <input type="date" id="date" name="Date" required>
+    </div>
+
+    <!-- SHIFT -->
+    <div class="form-group">
+        <label>
+            <i data-lucide="sun-moon"></i>
+            Shift<span class="required">*</span>
+        </label>
+        <select id="shift" name="Shift" required>
+            <option value="" disabled selected>Select Shift</option>
+            <option value="Day">Day Shift</option>
+            <option value="Night">Night Shift</option>
+        </select>
+    </div>
+</div>
+
+
+        <div class="form-group">
+            <label>
+                <i data-lucide="building-2"></i>
+                Plant Name<span class="required">*</span>
+            </label>
+            <select id="plant" name="Plant" required>
+                <option value="" disabled selected>Select Plant</option>
+                <option>Pawan Minerals</option>
+                <option>Bharat Silica - Palej</option>
+                <option>Safron Chemical</option>
+                <option>Danish Minerals</option>
+                <option>Safa Enterprise</option>
+                <option>Vahanvati Kalol</option>
+                <option>Blusky Speciality</option>
+                <option>Guwahati</option>
+                <option>Vapi plant</option>
+                <option>Bharat Silica - Rajasthan</option>
+                <option>Bharat Silica - Saring</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <i data-lucide="briefcase"></i>
+                Company Name<span class="required">*</span>
+            </label>
+            <select id="company" onchange="handleCompanyChange()" required>
+                <option value="">Select a company</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <i data-lucide="package"></i>
+                Product Name<span class="required">*</span>
+            </label>
+            <select id="product" onchange="autoSetPackSize()">
+                <option value="">Select a product</option>
+            </select>
+        </div>
+
+<div class="form-group">
+    <label>
+        <i data-lucide="hash"></i>
+        Mixture Number<span class="required">*</span>
+    </label>
+    <input type="text" id="mixture" name="Mixture" required placeholder="Enter mixture number">
+</div>
+
+<button type="button" id="nextBtn" class="btn btn-primary">
+    <i data-lucide="arrow-right"></i>
+    Next
+</button>
+     </div>
+
+<div id="page2" style="display:none;">
+
+<div class="form-group">
+    <label>
+        <i data-lucide="users"></i>
+        Labour Party Name<span class="required">*</span>
+    </label>
+    <input type="text" id="labourParty" name="Labour Party" required placeholder="Enter labour party name">
+</div>
+
+<div class="grid-2">
+    <div class="form-group">
+        <label>
+            <i data-lucide="clock"></i>
+            Production Start Time<span class="required">*</span>
+        </label>
+        <input type="time" id="startTime" name="Production Start Time" required>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <i data-lucide="clock"></i>
+            Production End Time<span class="required">*</span>
+        </label>
+        <input type="time" id="endTime" name="Production End Time" required>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>
+        <i data-lucide="timer"></i>
+        Total Working Hours
+    </label>
+    <input type="text" id="totalHours" name="Total Working Hours" readonly>
+</div>
+
+<div class="form-group">
+            <label>
+                <i data-lucide="hash"></i>
+                Batch Number<span class="required">*</span>
+            </label>
+            <input type="text" id="batch" name="Batch" required placeholder="Enter batch number">
+        </div>
+
+<div class="grid-2">
+    <div class="form-group">
+        <label>
+            <i data-lucide="layers"></i>
+            Batch Size (Ton)<span class="required">*</span>
+        </label>
+        <select id="batchSizeTon" name="Batch Size (Ton)" required>
+            <option value="" disabled selected>Select batch size</option>
+            <option value="0">0</option>
+		<option value="9">9</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="30">30</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <i data-lucide="weight"></i>
+            Packing Size (KG)<span class="required">*</span>
+        </label>
+        <input type="number" id="packSize" readonly>
+    </div>
+
+</div>
+
+
+<div class="grid-2">
+    <div class="form-group">
+        <label>
+            <i data-lucide="calculator"></i>
+            Standard Production (Bags)
+        </label>
+        <input type="number" id="standardProduction" name="Standard Production" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <i data-lucide="shopping-bag"></i>
+            Actual Production (Bags)<span class="required">*</span>
+        </label>
+        <input type="number" id="bags" name="Actual Production (Bags)" required placeholder="Enter actual bags produced">
+    </div>
+</div>
+
+
+<div class="form-group">
+    <label>
+        <i data-lucide="archive"></i>
+        Balance Quantity (Bags)
+    </label>
+    <input type="number" id="balanceQty" name="Balance Quantity (Bags)" readonly>
+</div>
+
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label>
+                    <i data-lucide="scale"></i>
+                    Total Quantity (KG)
+                </label>
+                <input type="number" id="qtyKg" name="Qty KG" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <i data-lucide="truck"></i>
+                    Total Quantity (MT)
+                </label>
+                <input type="number" id="qtyMT" name="Qty MT" readonly>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <i data-lucide="message-square"></i>
+                Remarks
+            </label>
+            <input type="text" id="remark" name="Remark" placeholder="Add any additional notes">
+        </div>
+<div class="grid-2">
+    <button type="button" id="backBtn" class="btn btn-primary">
+        <i data-lucide="arrow-left"></i>
+        Back
+    </button>
+        <button id="submitBtn" type="button" class="btn btn-primary">
+            <i data-lucide="send"></i>
+            Submit Production Report
+        </button>
+    </div>
+</div>
+</div>
+</form>
+<script>
+const params = new URLSearchParams(window.location.search);
+const emailFromLogin = params.get("email");
+
+if (emailFromLogin) {
+    document.getElementById("email").value = emailFromLogin;
+}
+
+function calculateBalanceQuantity() {
+    const standard = parseFloat(document.getElementById("standardProduction").value);
+    let actual = parseFloat(document.getElementById("bags").value);
+
+    if (!isNaN(standard) && !isNaN(actual)) {
+        // Ensure actual does not exceed standard
+        if (actual > standard) {
+            document.getElementById("bags").value = ""; // Clear the field
+            document.getElementById("balanceQty").value = standard.toFixed(2); // Balance equals standard
+            alert("Actual Production cannot be greater than Standard Production!");
+            return; // Stop further calculation
+        }
+        document.getElementById("balanceQty").value = (standard - actual).toFixed(2);
+    } else {
+        document.getElementById("balanceQty").value = "";
+    }
+}
+
+// Trigger when actual production changes
+document.getElementById("bags").addEventListener("input", calculateBalanceQuantity);
+</script>
+
+<script>
+function calculateHours() {
+    const start = document.getElementById("startTime").value;
+    const end = document.getElementById("endTime").value;
+
+    if (!start || !end) {
+        document.getElementById("totalHours").value = "";
+        return;
+    }
+
+    const startTime = new Date(`1970-01-01T${start}:00`);
+    let endTime = new Date(`1970-01-01T${end}:00`);
+
+    // Handle night shift (end time next day)
+    if (endTime <= startTime) {
+        endTime.setDate(endTime.getDate() + 1);
+    }
+
+    const diffMs = endTime - startTime;
+    const diffHours = diffMs / (1000 * 60 * 60);
+
+    const hours = Math.floor(diffHours);
+    const minutes = Math.round((diffHours - hours) * 60);
+
+    document.getElementById("totalHours").value =
+        `${hours} hrs ${minutes} mins`;
+}
+
+document.getElementById("startTime").addEventListener("change", calculateHours);
+document.getElementById("endTime").addEventListener("change", calculateHours);
+</script>
+
+<script>
+function calculateStandardProduction() {
+    const batchSize = parseFloat(document.getElementById("batchSizeTon").value);
+    const packSize = parseFloat(document.getElementById("packSize").value);
+
+    if (!isNaN(batchSize) && !isNaN(packSize) && packSize > 0) {
+        const standardProd = (batchSize * 1000) / packSize;
+        document.getElementById("standardProduction").value = standardProd.toFixed(2);
+    } else {
+        document.getElementById("standardProduction").value = "";
+    }
+}
+
+// Trigger calculation when values change
+document.getElementById("batchSizeTon").addEventListener("change", calculateStandardProduction);
+document.getElementById("packSize").addEventListener("change", calculateStandardProduction);
+</script>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+function loadCompanies() {
+    const company = document.getElementById("company");
+
+    company.innerHTML = `
+        <option value="">Select a company</option>
+        <option value="NIL">NIL</option>
+    `;
+
+    Object.keys(companyProducts).forEach(c => {
+        company.innerHTML += `<option value="${c}">${c}</option>`;
+    });
+}
+
+// =======================
+// HANDLE COMPANY CHANGE
+// =======================
+function handleCompanyChange() {
+    const company = document.getElementById("company").value;
+
+    if (company === "NIL") {
+        applyNilMode();
+    } else {
+        removeNilMode();
+        updateProducts();
+    }
+}
+
+// =======================
+// UPDATE PRODUCTS
+// =======================
+function updateProducts() {
+    const company = document.getElementById("company").value;
+    const product = document.getElementById("product");
+
+    product.innerHTML = `<option value="">Select a product</option>`;
+
+    if (companyProducts[company]) {
+        companyProducts[company].forEach(p => {
+            product.innerHTML += `<option value="${p}">${p}</option>`;
+        });
+    }
+}
+
+// =======================
+// APPLY NIL MODE (PRODUCTION)
+// =======================
+
+
+function applyNilMode() {
+
+    // PRODUCT
+    const product = document.getElementById("product");
+    product.innerHTML = `<option value="NIL">NIL</option>`;
+    product.value = "NIL";
+    product.disabled = true; // OK – product already hard-set
+    product.required = false;
+
+    // TEXT FIELDS → NIL
+    ["mixture", "batch", "labourParty"].forEach(id => {
+        const el = document.getElementById(id);
+        el.value = "NIL";
+        el.readOnly = true;
+        el.required = false;
+    });
+
+    // NUMBER FIELDS → 0
+    ["bags", "standardProduction", "balanceQty", "qtyKg", "qtyMT"].forEach(id => {
+        const el = document.getElementById(id);
+        el.value = 0;
+        el.readOnly = true;
+        el.required = false;
+    });
+
+    const batchSize = document.getElementById("batchSizeTon");
+
+if (!batchSize.querySelector('option[value="0"]')) {
+    const opt = document.createElement("option");
+    opt.value = "0";
+    opt.textContent = "NIL";
+    batchSize.appendChild(opt);
+}
+
+batchSize.value = "0";
+batchSize.disabled = true;
+batchSize.required = false;
+
+
+    // PACK SIZE (⚠ FIX: disabled → readOnly)
+    const packSize = document.getElementById("packSize");
+    packSize.value = "0";
+    packSize.readOnly = true;
+    packSize.required = false;
+
+    // TIME FIELDS (⚠ FIX: disabled → readOnly + valid time)
+    ["startTime", "endTime"].forEach(id => {
+        const el = document.getElementById(id);
+        el.value = "00:00";
+        el.readOnly = true;
+        el.required = false;
+    });
+
+    // TOTAL HOURS
+    document.getElementById("totalHours").value = "NIL";
+}
+function removeNilMode() {
+
+    // PRODUCT
+    const product = document.getElementById("product");
+    product.disabled = false;
+    product.required = true;
+    product.innerHTML = `<option value="">Select a product</option>`;
+
+    // TEXT FIELDS
+    ["mixture", "batch", "labourParty"].forEach(id => {
+        const el = document.getElementById(id);
+        el.value = "";
+        el.readOnly = false;
+        el.required = id !== "remark";
+    });
+
+   const batchSize = document.getElementById("batchSizeTon");
+
+const nilOption = batchSize.querySelector('option[value="0"]');
+if (nilOption) nilOption.remove();
+
+batchSize.disabled = false;
+batchSize.required = true;
+batchSize.value = "";
+
+
+    // PACK SIZE (⚠ FIX: disabled → readOnly)
+    const packSize = document.getElementById("packSize");
+    packSize.readOnly = false;
+    packSize.required = true;
+    packSize.value = "0";
+
+    // NUMBER FIELDS
+    const bags = document.getElementById("bags");
+    bags.value = "";
+    bags.readOnly = false;
+    bags.required = true;
+
+    ["standardProduction", "balanceQty", "qtyKg", "qtyMT"].forEach(id => {
+        document.getElementById(id).value = "";
+    });
+
+    // TIME FIELDS (⚠ FIX: disabled → readOnly)
+    ["startTime", "endTime"].forEach(id => {
+        const el = document.getElementById(id);
+        el.readOnly = false;
+        el.required = true;
+        el.value = "";
+    });
+
+    // TOTAL HOURS
+    document.getElementById("totalHours").value = "";
+}
+
+
+// =======================
+// FULL RESET AFTER SUBMIT
+
+function resetAfterSubmit() {
+
+    // ===== COMPANY =====
+    const company = document.getElementById("company");
+    company.value = "";
+
+    // ===== PRODUCT =====
+    const product = document.getElementById("product");
+    product.innerHTML = `<option value="">Select a product</option>`;
+    product.disabled = false;
+    product.required = true;
+
+    // ===== BATCH SIZE =====
+    const batchSize = document.getElementById("batchSizeTon");
+    batchSize.value = "";
+    batchSize.disabled = false;
+    batchSize.required = true;
+
+    // ===== PACK SIZE =====
+    const packSize = document.getElementById("packSize");
+    packSize.value = "0";
+    packSize.disabled = false;
+    packSize.required = true;
+
+    // ===== TEXT FIELDS =====
+    ["mixture", "batch", "labourParty", "remark"].forEach(id => {
+        const el = document.getElementById(id);
+        el.value = "";
+        el.readOnly = false;
+        el.required = id !== "remark";
+    });
+
+    // ===== NUMBER FIELDS =====
+    const bags = document.getElementById("bags");
+    bags.value = "";
+    bags.readOnly = false;
+    bags.required = true;
+
+    ["standardProduction", "balanceQty", "qtyKg", "qtyMT"].forEach(id => {
+        document.getElementById(id).value = "";
+    });
+
+    // ===== TIME FIELDS =====
+    ["startTime", "endTime"].forEach(id => {
+        const el = document.getElementById(id);
+        el.value = "";
+        el.disabled = false;
+        el.required = true;
+    });
+
+    // ===== TOTAL HOURS =====
+    document.getElementById("totalHours").value = "";
+}
+
+// =======================
+// AUTO CALCULATE KG & MT
+// =======================
+function calculateQuantity() {
+    if (document.getElementById("company").value === "NIL") return;
+
+    const size = Number(document.getElementById("packSize").value);
+    const bags = Number(document.getElementById("bags").value);
+
+    const totalKG = size * bags;
+    document.getElementById("qtyKg").value = totalKG;
+    document.getElementById("qtyMT").value = (totalKG / 1000).toFixed(3);
+}
+
+document.getElementById("packSize").addEventListener("change", calculateQuantity);
+document.getElementById("bags").addEventListener("input", calculateQuantity);
+
+// =======================
+// INIT
+// =======================
+document.addEventListener("DOMContentLoaded", loadCompanies);
+
+// Submit button - Show preview
+document.getElementById("submitBtn").addEventListener("click", function () {
+
+    const btn = this;
+    const form = document.querySelector("form");
+
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    // ⛔ Prevent multiple clicks
+    btn.disabled = true;
+    btn.classList.add("loading");
+    btn.innerHTML = "Submitting...";
+
+    const data = {
+    // Page 1
+    email: document.getElementById("email").value,
+    date: document.getElementById("date").value,
+    shift: document.getElementById("shift").value,
+    plant: document.getElementById("plant").value,
+    company: document.getElementById("company").value,
+    product: document.getElementById("product").value,
+    mixture: document.getElementById("mixture").value,
+
+    // Page 2
+    labourParty: document.getElementById("labourParty").value,
+    productionStartTime: document.getElementById("startTime").value,
+    productionEndTime: document.getElementById("endTime").value,
+    totalWorkingHours: document.getElementById("totalHours").value,
+
+    batch: document.getElementById("batch").value,
+    batchSizeTon: document.getElementById("batchSizeTon").value,
+    packSizeKg: document.getElementById("packSize").value,
+
+    standardProductionBags: document.getElementById("standardProduction").value,
+    actualProductionBags: document.getElementById("bags").value,
+    balanceQuantityBags: document.getElementById("balanceQty").value,
+
+    totalQtyKg: document.getElementById("qtyKg").value,
+    totalQtyMt: document.getElementById("qtyMT").value,
+
+    remark: document.getElementById("remark").value
+};
+
+
+    fetch("https://script.google.com/macros/s/AKfycbzD5XbLp5EvYcvjsYgbpv31SudpMRfvrVX8a2wot_iFgcQYUUVMEqwwJ4dssPyNRArs/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(() => {
+
+    alert("Data saved and sent to mail successfully!!");
+
+    // Reset HTML inputs
+    form.reset();
+document.getElementById("email").value = emailFromLogin;
+
+	page2.style.display = "none";
+page1.style.display = "block";
+window.scrollTo({ top: 0, behavior: "smooth" });
+
+
+
+    // 🚨 IMPORTANT: Remove NIL mode completely
+    resetAfterSubmit();
+})
+
+    .catch(err => {
+        console.error(err);
+        alert("Something went wrong!");
+    })
+    .finally(() => {
+
+        // 🔓 Enable button AFTER alerts
+        btn.disabled = false;
+        btn.classList.remove("loading");
+        btn.innerHTML = `
+            <i data-lucide="send"></i>
+            Submit Production Report
+        `;
+        lucide.createIcons();
+    });
+
+});
+</script>
+</script>
+    <!-- your existing submit / fetch script here -->
+
+    <script>
+    const page1 = document.getElementById("page1");
+    const page2 = document.getElementById("page2");
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+
+        // Validate only Page-1 fields
+        const inputs = page1.querySelectorAll("input, select");
+        for (let input of inputs) {
+            if (!input.checkValidity()) {
+                input.reportValidity();
+                return;
+            }
+        }
+
+        page1.style.display = "none";
+        page2.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    document.getElementById("backBtn").addEventListener("click", () => {
+        page2.style.display = "none";
+        page1.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    </script>
+
+</body>
+</html>

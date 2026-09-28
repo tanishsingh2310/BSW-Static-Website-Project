@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Silica Works - Dispatch Form</title>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Company Products Script -->
+    <script src="company_products.js"></script>
+
+    <style>
+    * { 
+        box-sizing: border-box; 
+        margin: 0;
+        padding: 0;
+    }
+    
+    :root {
+        --primary: #2563eb;
+        --primary-dark: #1e40af;
+        --primary-light: #3b82f6;
+        --secondary: #8b5cf6;
+        --success: #10b981;
+        --danger: #ef4444;
+        --warning: #f59e0b;
+        --dark: #0f172a;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-300: #cbd5e1;
+        --gray-400: #94a3b8;
+        --gray-500: #64748b;
+        --gray-600: #475569;
+        --gray-700: #334155;
+        --gray-800: #1e293b;
+        --gray-900: #0f172a;
+        --white: #ffffff;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        --radius-sm: 8px;
+        --radius: 12px;
+        --radius-lg: 16px;
+        --radius-xl: 20px;
+    }
+    
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #e2e1fc;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
+        position: relative;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Animated Background */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        animation: backgroundPulse 15s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    @keyframes backgroundPulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+    }
+    
+    /* Floating Particles */
+    body::after {
+        content: '';
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background-image: 
+            radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+            radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px, 80px 80px;
+        background-position: 0 0, 40px 40px;
+        animation: floatParticles 60s linear infinite;
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    @keyframes floatParticles {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        100% { transform: translate(50px, 50px) rotate(360deg); }
+    }
+    
+    .container { 
+        width: 100%; 
+        max-width: 620px; 
+        position: relative;
+        z-index: 1;
+    }
+    
+    /* Main Card */
+    .box {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        padding: 56px 48px;
+        border-radius: var(--radius-xl);
+        box-shadow: 
+            0 0 0 1px rgba(255, 255, 255, 0.1),
+            0 30px 60px -12px rgba(0, 0, 0, 0.25),
+            0 50px 100px -20px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Top Accent Bar */
+    .box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, 
+            #667eea 0%, 
+            #764ba2 25%, 
+            #f093fb 50%, 
+            #764ba2 75%, 
+            #667eea 100%);
+        background-size: 200% 100%;
+        animation: gradientShift 8s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+    
+
+    
+    .box:hover::after {
+        opacity: 1;
+    }
+    
+    @keyframes slideInUp {
+        from { 
+            opacity: 0; 
+            transform: translateY(60px) scale(0.95);
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    /* Header */
+    .form-header {
+        text-align: center;
+        margin-bottom: 48px;
+        position: relative;
+    }
+    
+    .form-icon {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.4);
+        animation: iconFloat 3s ease-in-out infinite;
+    }
+    
+    @keyframes iconFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    .form-icon i {
+        color: white;
+        width: 32px;
+        height: 32px;
+    }
+    
+    h2 { 
+        margin: 0 0 12px 0;
+        font-weight: 800;
+        color: var(--gray-900);
+        font-size: 26px;
+        letter-spacing: -1px;
+        line-height: 1.2;
+    }
+    
+    .form-subtitle {
+        color: var(--gray-500);
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+    
+    /* Form Groups */
+    .form-group {
+        margin-bottom: 28px;
+        position: relative;
+        animation: fadeInUp 0.6s ease-out backwards;
+    }
+    
+    .form-group:nth-child(1) { animation-delay: 0.1s; }
+    .form-group:nth-child(2) { animation-delay: 0.15s; }
+    .form-group:nth-child(3) { animation-delay: 0.2s; }
+    .form-group:nth-child(4) { animation-delay: 0.25s; }
+    .form-group:nth-child(5) { animation-delay: 0.3s; }
+    .form-group:nth-child(6) { animation-delay: 0.35s; }
+    .form-group:nth-child(7) { animation-delay: 0.4s; }
+    .form-group:nth-child(8) { animation-delay: 0.45s; }
+    .form-group:nth-child(9) { animation-delay: 0.5s; }
+    .form-group:nth-child(10) { animation-delay: 0.55s; }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    label { 
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--gray-700);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        letter-spacing: 0.2px;
+        transition: color 0.2s ease;
+    }
+    
+    label i {
+        width: 16px;
+        height: 16px;
+        color: var(--gray-400);
+    }
+    
+    .required {
+        color: var(--danger);
+        margin-left: 2px;
+    }
+    
+    /* Input Fields */
+    input, select {
+        width: 100%;
+        padding: 15px 18px;
+        border: 2px solid var(--gray-200);
+        border-radius: var(--radius);
+        background: var(--white);
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        outline: none;
+        color: var(--gray-900);
+        font-family: inherit;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    input:hover, select:hover {
+        border-color: var(--gray-300);
+        box-shadow: var(--shadow);
+    }
+    
+    input:focus, select:focus {
+        border-color: var(--primary);
+        background: var(--white);
+        box-shadow: 
+            0 0 0 4px rgba(37, 99, 235, 0.1),
+            0 4px 12px rgba(37, 99, 235, 0.15);
+        transform: translateY(-2px);
+    }
+    
+    input:focus ~ label, select:focus ~ label {
+        color: var(--primary);
+    }
+    
+    input[readonly] {
+        background: var(--gray-50);
+        cursor: not-allowed;
+        color: var(--gray-500);
+        border-color: var(--gray-200);
+    }
+    
+    input[readonly]:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    /* Clean Select Dropdown */
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+    }
+
+    select:not([multiple]):not([size]) {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        background-size: 18px;
+        padding-right: 50px;
+    }
+
+    select::-ms-expand {
+        display: none;
+    }
+    
+    /* Grid Layout for Quantity Fields */
+    .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    /* Buttons */
+    .btn {
+        width: 100%;
+        padding: 16px 24px;
+        border: none;
+        border-radius: var(--radius);
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 0.3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .btn i {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: white;
+        margin-top: 16px;
+    }
+    
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    .btn-primary:hover::before {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 
+            0 15px 30px -5px rgba(102, 126, 234, 0.5),
+            0 0 0 0 rgba(102, 126, 234, 0.5);
+    }
+    
+    .btn-primary:active {
+        transform: translateY(-1px);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        body {
+            padding: 16px;
+        }
+        
+        .box {
+            padding: 40px 28px;
+        }
+        
+        .form-header {
+            margin-bottom: 36px;
+        }
+        
+        .form-icon {
+            width: 56px;
+            height: 56px;
+        }
+        
+        h2 {
+            font-size: 26px;
+        }
+        
+        .form-subtitle {
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        input, select {
+            padding: 13px 16px;
+            font-size: 14px;
+        }
+        
+        .grid-2 {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        .btn {
+            padding: 14px 20px;
+            font-size: 15px;
+        }
+    }
+    
+    /* Loading State */
+    .loading {
+        pointer-events: none;
+        opacity: 0.6;
+        position: relative;
+    }
+    
+    .loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 24px;
+        height: 24px;
+        margin: -12px 0 0 -12px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+.vehicle-group {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 14px;
+}
+
+.vehicle-group select {
+    text-align: center;
+    font-weight: 700;
+}
+
+    </style>
+</head>
+
+<body>
+<form>
+<div class="container">
+    <div class="box">
+        <div class="form-header">
+            <div class="form-icon">
+                <i data-lucide="truck"></i>
+            </div>
+            <h2>Bharat Silica Works - Daily Dispatch Report </h2>
+        </div>
+<div id="page1">
+        <div class="form-group">
+            <label>
+                <i data-lucide="mail"></i>
+                Email Address<span class="required">*</span>
+            </label>
+            <input type="email" id="email" readonly required>
+        </div>
+
+        <div class="grid-2">
+    <!-- DATE -->
+    <div class="form-group">
+        <label>
+            <i data-lucide="calendar"></i>
+            Date<span class="required">*</span>
+        </label>
+        <input type="date" id="date" name="Date" required>
+    </div>
+
+    <!-- SHIFT -->
+    <div class="form-group">
+        <label>
+            <i data-lucide="sun-moon"></i>
+            Shift<span class="required">*</span>
+        </label>
+        <select id="shift" name="Shift" required>
+            <option value="" disabled selected>Select Shift</option>
+            <option value="Day">Day Shift</option>
+            <option value="Night">Night Shift</option>
+        </select>
+    </div>
+</div>
+
+       
+
+	<div class="form-group">
+            <label>
+                <i data-lucide="user"></i>
+                Transporter Name<span class="required">*</span>
+            </label>
+            <input type="text" id="driv" placeholder="Enter driver name" required>
+        </div>
+       
+        <div class="form-group">
+            <label>
+                <i data-lucide="phone"></i>
+                Transporter Mobile Number<span class="required">*</span>
+            </label>
+            <input type="tel" id="drivmn" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
+        </div>
+
+       <div class="form-group">
+    <label>
+        <i data-lucide="truck"></i>
+        Vehicle No.<span class="required">*</span>
+    </label>
+
+    <div class="vehicle-group">
+	<select id="stateCode" required>
+    		<option value="" disabled selected>State</option>
+
+    		<option value="AN">Andaman & Nicobar Islands – AN</option>
+    		<option value="AP">Andhra Pradesh – AP</option>
+    		<option value="AR">Arunachal Pradesh – AR</option>
+    		<option value="AS">Assam – AS</option>
+    		<option value="BR">Bihar – BR</option>
+    		<option value="CH">Chandigarh – CH</option>
+    		<option value="CG">Chhattisgarh – CG</option>
+  		<option value="DN">Dadra & Nagar Haveli and Daman & Diu – DN</option>
+    		<option value="DL">Delhi – DL</option>
+    		<option value="GA">Goa – GA</option>
+    		<option value="GJ">Gujarat – GJ</option>
+    		<option value="HR">Haryana – HR</option>
+    		<option value="HP">Himachal Pradesh – HP</option>
+    		<option value="JK">Jammu & Kashmir – JK</option>
+    		<option value="JH">Jharkhand – JH</option>
+    		<option value="KA">Karnataka – KA</option>
+    		<option value="KL">Kerala – KL</option>
+    		<option value="LA">Ladakh – LA</option>
+    		<option value="MP">Madhya Pradesh – MP</option>
+    		<option value="MH">Maharashtra – MH</option>
+    		<option value="MN">Manipur – MN</option>
+    		<option value="ML">Meghalaya – ML</option>
+    		<option value="MZ">Mizoram – MZ</option>
+    		<option value="NL">Nagaland – NL</option>
+    		<option value="OD">Odisha – OD</option>
+    		<option value="PB">Punjab – PB</option>
+    		<option value="RJ">Rajasthan – RJ</option>
+    		<option value="SK">Sikkim – SK</option>
+    		<option value="TN">Tamil Nadu – TN</option>
+    		<option value="TS">Telangana – TS</option>
+    		<option value="TR">Tripura – TR</option>
+    		<option value="UK">Uttarakhand – UK</option>
+    		<option value="UP">Uttar Pradesh – UP</option>
+    		<option value="WB">West Bengal – WB</option>
+	</select>
+	<input 
+            type="text" 
+            id="truck" 
+            placeholder="00-XX-0000" 
+            required
+        >
+    </div>
+</div>
+
+        <div class="form-group">
+            <label>
+                <i data-lucide="map-pin"></i>
+                Dispatch Location<span class="required">*</span>
+            </label>
+            <input type="text" id="location" placeholder="Enter dispatch location" required>
+        </div>
+        
+	<div class="form-group">
+            <label>
+                <i data-lucide="factory"></i>
+                Plant Name<span class="required">*</span>
+            </label>
+            <select id="plant" required>
+                <option value="" disabled selected>Select Plant</option>
+                <option>Pawan Minerals</option>
+                <option>Bharat Silica - Palej</option>
+                <option>Safron Chemical</option>
+                <option>Danish Minerals</option>
+                <option>Safa Enterprise</option>
+                <option>Vahanvati Kalol</option>
+                <option>Blusky Speciality</option>
+                <option>Guwahati</option>
+                <option>Vapi plant</option>
+                <option>Bharat Silica - Rajasthan</option>
+                <option>Bharat Silica - Saring</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <i data-lucide="building-2"></i>
+                Company Name<span class="required">*</span>
+            </label>
+            <select id="company" onchange="handleCompanyChange()" required>
+                <option value="">Select a company</option>
+            </select>
+        </div>
+<button type="button" id="nextBtn" class="btn btn-primary">
+    <i data-lucide="arrow-right"></i>
+    Next
+</button>
+     </div>
+
+<div id="page2" style="display:none;">
+
+        <div class="form-group">
+            <label>
+                <i data-lucide="package"></i>
+                Product Name<span class="required">*</span>
+            </label>
+            <select id="product" onchange="autoSetPackSize()">
+                <option value="">Select a product</option>
+            </select>
+        </div>
+            
+        <div class="form-group">
+    <label>
+        <i data-lucide="hash"></i>
+        No. of Batches<span class="required">*</span>
+    </label>
+    <input 
+        type="number" 
+        id="batchCount" 
+        min="1" 
+        max="20" 
+        placeholder="1 - 20" 
+        required
+    >
+</div>
+
+<div class="form-group">
+    <label>
+        <i data-lucide="layers"></i>
+        Batch Numbers<span class="required">*</span>
+    </label>
+    <div id="batchContainer"></div>
+</div>
+        
+        <div class="grid-2">
+            <div class="form-group">
+        <label>
+            <i data-lucide="weight"></i>
+            Packing Size (KG)<span class="required">*</span>
+        </label>
+        <input type="number" id="packSize" readonly>
+    </div>
+
+            <div class="form-group">
+                <label>
+                    <i data-lucide="shopping-bag"></i>
+                    No. of Bags<span class="required">*</span>
+                </label>
+                <input type="number" id="bags" placeholder="0" required>
+            </div>
+        </div>
+
+<div class="grid-2">
+    <div class="form-group">
+        <label>
+            <i data-lucide="scale"></i>
+            Total Quantity (KG)
+        </label>
+        <input type="number" id="qtyKg" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <i data-lucide="truck"></i>
+            Total Quantity (MT)
+        </label>
+        <input type="number" id="qtyMT" readonly>
+    </div>
+</div>
+
+
+        <div class="form-group">
+            <label>
+                <i data-lucide="file-text"></i>
+                Invoice Number (BSW)<span class="required">*</span>
+            </label>
+            <input type="text" id="invoice" placeholder="Invoice Number" required>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <i data-lucide="receipt"></i>
+                Company Invoice Number<span class="required">*</span>
+            </label>
+            <input type="text" id="cinvoice" placeholder="Company invoice number" required>
+        </div>
+
+<div class="form-group">
+    <label>
+        <i data-lucide="users"></i>
+        Loaded Party Name<span class="required">*</span>
+    </label>
+    <input type="text" id="partyName" placeholder="Enter party name" required>
+</div>
+
+<div class="grid-2">
+    <div class="form-group">
+        <label>
+            <i data-lucide="clock"></i>
+            Loading Start Time<span class="required">*</span>
+        </label>
+        <input type="time" id="loadStart" required>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <i data-lucide="clock-3"></i>
+            Unloading End Time<span class="required">*</span>
+        </label>
+        <input type="time" id="unloadEnd" required>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>
+        <i data-lucide="timer"></i>
+        Total Work Hours
+    </label>
+    <input type="text" id="workHours" readonly>
+</div>
+
+        
+
+        <div class="form-group">
+            <label>
+                <i data-lucide="message-square"></i>
+                Remarks
+            </label>
+            <input type="text" id="remark" placeholder="Optional remarks">
+        </div>
+
+        <div class="grid-2">
+    <button type="button" id="backBtn" class="btn btn-primary">
+        <i data-lucide="arrow-left"></i>
+        Back
+    </button>
+
+    <button type="button" id="submitBtn" class="btn btn-primary">
+        <i data-lucide="send"></i>
+        Submit Dispatch Report
+    </button>
+</div>
+
+    </div>
+</div>
+</div>
+</form>
+<script>
+const batchCountInput = document.getElementById("batchCount");
+const batchContainer = document.getElementById("batchContainer");
+
+batchCountInput.addEventListener("input", () => {
+    const count = Number(batchCountInput.value);
+
+    // Clear if invalid
+    if (count < 1 || count > 20) {
+        batchContainer.innerHTML = "";
+        return;
+    }
+
+    batchContainer.innerHTML = "";
+
+    for (let i = 1; i <= count; i++) {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = `Batch ${i}`;
+        input.required = true;
+        input.style.marginBottom = "10px";
+        batchContainer.appendChild(input);
+    }
+});
+const params = new URLSearchParams(window.location.search);
+const emailFromLogin = params.get("email");
+
+if (emailFromLogin) {
+    document.getElementById("email").value = emailFromLogin;
+}
+
+function calculateWorkHours() {
+    const start = document.getElementById("loadStart").value;
+    const end = document.getElementById("unloadEnd").value;
+    const output = document.getElementById("workHours");
+
+    if (!start || !end) {
+        output.value = "";
+        return;
+    }
+
+    const [sh, sm] = start.split(":").map(Number);
+    const [eh, em] = end.split(":").map(Number);
+
+    let startMinutes = sh * 60 + sm;
+    let endMinutes = eh * 60 + em;
+
+    // Handle overnight work (e.g. 22:00 → 02:00)
+    if (endMinutes < startMinutes) {
+        endMinutes += 24 * 60;
+    }
+
+    const diff = endMinutes - startMinutes;
+    const hours = Math.floor(diff / 60);
+    const minutes = diff % 60;
+
+    output.value = `${hours} hr ${minutes} min`;
+}
+
+document.getElementById("loadStart").addEventListener("change", calculateWorkHours);
+document.getElementById("unloadEnd").addEventListener("change", calculateWorkHours);
+</script>
+
+
+<script>
+// Initialize Lucide icons
+
+lucide.createIcons();
+
+// Auto calculate KG & MT (same as production)
+function calculateQuantity() {
+    const size = Number(document.getElementById("packSize").value);
+    const bags = Number(document.getElementById("bags").value);
+    const totalKG = size * bags;
+
+    document.getElementById("qtyKg").value = totalKG;
+    document.getElementById("qtyMT").value = (totalKG / 1000).toFixed(3);
+}
+
+document.getElementById("packSize").addEventListener("change", calculateQuantity);
+document.getElementById("bags").addEventListener("input", calculateQuantity);
+
+
+
+// Submit button click
+document.getElementById("submitBtn").addEventListener("click", function () {
+
+    const btn = this;
+    const form = document.querySelector("form");
+
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    // ⛔ Disable button & show loading
+    btn.disabled = true;
+    btn.classList.add("loading");
+    btn.innerHTML = "Submitting...";
+
+    const data = {
+    // Page 1
+    email: document.getElementById("email").value,
+    date: document.getElementById("date").value,
+    shift: document.getElementById("shift").value,
+    driv: document.getElementById("driv").value,
+    drivmn: document.getElementById("drivmn").value,
+    truck: document.getElementById("stateCode").value + "-" + document.getElementById("truck").value,
+    location: document.getElementById("location").value,
+    plant: document.getElementById("plant").value,
+    company: document.getElementById("company").value,
+
+    // Page 2
+    product: document.getElementById("product").value,
+    batchCount: document.getElementById("batchCount").value,
+    batchNumbers: Array.from(
+        document.querySelectorAll("#batchContainer input")
+    ).map(i => i.value).join(", "),
+
+    packSize: document.getElementById("packSize").value,
+    bags: document.getElementById("bags").value,
+    qtyKg: document.getElementById("qtyKg").value,
+    qtyMt: document.getElementById("qtyMT").value,
+
+    invoice: document.getElementById("invoice").value,
+    cinvoice: document.getElementById("cinvoice").value,
+    partyName: document.getElementById("partyName").value,
+
+    loadStart: document.getElementById("loadStart").value,
+    unloadEnd: document.getElementById("unloadEnd").value,
+    workHours: document.getElementById("workHours").value,
+
+    remark: document.getElementById("remark").value
+};
+
+
+    fetch("https://script.google.com/macros/s/AKfycbzWrE5Jmi145kuuYjaLvIQRF_sGPCf04X8I7ZFOnY3nQYaXwZ-O509NJfJAkJKBCgke/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(() => {
+
+    alert("Data saved and sent to mail successfully!!");
+
+    // Reset form inputs
+    form.reset();
+document.getElementById("email").value = emailFromLogin;
+
+	page2.style.display = "none";
+	page1.style.display = "block";
+	window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // 🚨 EXIT NIL MODE COMPLETELY
+    	resetNilModeCompletely();
+
+})
+
+    .catch(err => {
+        console.error(err);
+        alert("Something went wrong!");
+    })
+    .finally(() => {
+
+        // 🔓 Enable button AFTER alerts
+        btn.disabled = false;
+        btn.classList.remove("loading");
+        btn.innerHTML = `
+            <i data-lucide="send"></i>
+            Submit Dispatch Report
+        `;
+        lucide.createIcons();
+    });
+
+});
+
+
+</script>
+    <!-- your existing submit / fetch script here -->
+
+    <script>
+    const page1 = document.getElementById("page1");
+    const page2 = document.getElementById("page2");
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+
+        // Validate only Page-1 fields
+        const inputs = page1.querySelectorAll("input, select");
+        for (let input of inputs) {
+            if (!input.checkValidity()) {
+                input.reportValidity();
+                return;
+            }
+        }
+
+        page1.style.display = "none";
+        page2.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    document.getElementById("backBtn").addEventListener("click", () => {
+        page2.style.display = "none";
+        page1.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    </script>
+
+</body>
+</html>
+
+</body>
+</html>
