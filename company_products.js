@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // =======================
 // Company → Products Data
 // =======================
@@ -1306,4 +1306,4 @@ function resetNilModeCompletely() {
     document.getElementById("qtyKg").value = "";
     document.getElementById("qtyMT").value = "";
 }
->>>>>>> dd8b2b1d30802dc6ebfbbe35004cd4c9b906741e
+
